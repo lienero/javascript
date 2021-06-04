@@ -1,0 +1,13 @@
+<script>
+  // 반복문
+  let output = 0;
+  for (let i = 1; i <= 10; i++) {
+    if (i % 2 === 1) {
+      // 현재 반복 작업을 중지하고 다음 반복 작업을 수행합니다.
+      continue;
+    }
+    output += i;
+  }
+  // 홀수는 중지했기에 짝수를 더한 값만 나온다.
+  alert(output);
+</script>
