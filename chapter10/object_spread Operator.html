@@ -1,0 +1,20 @@
+<script>
+  const 구름 = {
+    이름: "구름",
+    나이: 6,
+    종족: "강아지",
+  };
+
+  const 별 = {
+    // 전개 연사자를 이용해야 앝은 복사가 아니라 깊은 복사가 이뤄진다.
+    ...구름,
+    // 기존의 속성 덮어쓰기
+    이름: "별",
+    나이: 1,
+    // 새로운 속성 추가
+    예방접종: true,
+  };
+
+  console.log(JSON.stringify(구름));
+  console.log(JSON.stringify(별));
+</script>
