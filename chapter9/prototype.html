@@ -1,0 +1,25 @@
+<script>
+  // contain() 메소드를 추가합니다.
+  // prototype: prototype 객체에 속성과 메소드를 추가하면 모든 객체에서  해당 속성과 메소드를 사용할 수 있다.
+  String.prototype.contain = function (data) {
+    // indexOf : 문자열이 시작되는 위치를 출력하며, 없으면 -1을 출력한다.
+    // 따라서 문자열.indexOf(문자열) >= 0은 true 나 false 를 출력한다.
+    return this.indexOf(data) >= 0;
+  };
+
+  Array.prototype.contain = function (data) {
+    // indexOf : 문자열이 시작되는 위치를 출력하며, 없으면 -1을 출력한다.
+    // 따라서 문자열.indexOf(문자열) >= 0
+    return this.indexOf(data) >= 0;
+  };
+
+  // String 객체의 contain() 메소드를 사용합니다.
+  const a = "안녕하세요";
+  console.log("안녕 in 안녕하세요:", a.contain("안녕"));
+  console.log("없는데 in 안녕하세요:", a.contain("없는데"));
+
+  // Array 객체의 contain() 메소드를 사용합니다.
+  const b = [273, 32, 103, 57, 52];
+  console.log("273 in [273, 32, 103, 57, 52]:", b.contain(273));
+  console.log("0 in [273, 32, 103, 57, 52]:", b.contain(0));
+</script>

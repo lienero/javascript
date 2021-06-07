@@ -1,0 +1,23 @@
+<script>
+  // 자료를 생성합니다.
+  const data = [
+    {
+      name: "혼자 공부하는 파이썬",
+      price: 18000,
+      publisher: "한빛미디어",
+    },
+    {
+      name: "HTML5 웹 프로그래밍 입문",
+      price: 18000,
+      publisher: "한빛미디어",
+    },
+  ];
+
+  // 자료를 JSON으로 변환합니다.
+  // JSON.stringify(객체,속성선택(보통 null),들여쓰기) : 자바스크립트 객체를 JSON 문자열로 변환할 때 사용한다.
+  const json = JSON.stringify(data, null, 2);
+  console.log(json);
+
+  // JSON 문자열을 다시 자바스크립트 객체로 변환합니다.
+  console.log(JSON.parse(json));
+</script>
