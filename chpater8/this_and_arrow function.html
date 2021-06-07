@@ -1,0 +1,18 @@
+<script>
+  // 변수를 선언합니다.
+  const test = {
+    // 익명함수로 선언한다.
+    a: function () {
+      console.log(this);
+    },
+    b: () => {
+      console.log(this);
+    },
+  };
+
+  // 메소드를 호출합니다.
+  test.a();
+  // 화살표 함수를 메소드로 사용할시
+  // this의 의미가 달라지므로 화살표 함수를 메소드로 사용하지 않는 편이다.
+  test.b();
+</script>

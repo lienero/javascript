@@ -1,0 +1,17 @@
+<script>
+  // 객체를 선언합니다.
+  const student = {};
+  // 동적으로 속성을 추가
+  student.이름 = "윤인성";
+  student.취미 = "악기";
+  student.장래희망 = "생명공학자";
+
+  // JSON 형식으로 출력을 합니다.
+  console.log(JSON.stringify(student, null, 2));
+
+  // 객체의 속성을 제거합니다.
+  delete student.장래희망;
+
+  // JSON 형식으로 출력을 합니다.
+  console.log(JSON.stringify(student, null, 2));
+</script>
