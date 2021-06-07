@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DOMContentLoaded</title>
+    <script>
+      // DOMContentLoaded 이벤트를 연결합니다.
+      // DOMContentLoaded 이벤트는 웹 브라우저가 문서 객체를 모두 읽고나서 실행하는 이벤트입니다.
+      document.addEventListener("DOMContentLoaded", () => {
+        let counter = 0;
+        let isConnect = false;
+        // 태그 이름으로 요소를 선택한다.
+        const h1 = document.querySelector("h1");
+        const p = document.querySelector("p");
+        // 특정 아이디('#a')로 요소를 선택합니다.
+        const connectButton = document.querySelector("#connect");
+        const disconnectButton = document.querySelector("#disconnect");
+
+        // (event) 는 태그에 이벤트가 발생할 시에 실행된다.
+        // 이벤트를 제거하려면 이벤트 리스너를 변수 또는 상수로 가지고 있어야 합니다.
+        const listenr = (event) => {
+          h1.textContent = `클릭 횟수: ${counter++}`;
+        };
+
+        // 문서 객체.addEventListener(이벤트 이름, 콜백 함수) : 이벤트가 발생할 때 실행할 함수 정의
+        connectButton.addEventListener("click", () => {
+          if (isConnect === false) {
+            h1.addEventListener("click", listenr);
+            p.textContent = "이벤트 연결 상태: 연결";
+            isConnect = true;
+          }
+        });
+
+        // 문서 객체.addEventListener(이벤트 이름, 콜백 함수) : 이벤트가 발생할 때 실행할 함수 정의
+        disconnectButton.addEventListener("click", () => {
+          if (isConnect === true) {
+            // 문서 객체.removeEventListener(이벤트 이름, 이벤트 리스너(==콜백함수)) : 이벤트를 제거함
+            h1.removeEventListener("click", listenr);
+            p.textContent = "이벤트 연결 상태: 해제";
+            isConnect = false;
+          }
+        });
+      });
+    </script>
+    <style>
+      h1 {
+        /* 클릭이 여러번 됐을 때 글자가 선택되는 것을 막기 위한 스타일 */
+        user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>클릭 횟수: 0</h1>
+    <button id="connect">이벤트 연결</button>
+    <button id="disconnect">이벤트 제거</button>
+    <p>이벤트 연결 상태: 해제</p>
+  </body>
+</html>

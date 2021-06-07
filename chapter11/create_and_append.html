@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DOMContentLoaded</title>
+    <script>
+      // DOMContentLoaded 이벤트를 연결합니다.
+      // DOMContentLoaded 이벤트는 웹 브라우저가 문서 객체를 모두 읽고나서 실행하는 이벤트입니다.
+      document.addEventListener("DOMContentLoaded", () => {
+        // createElement을 이용해 h1 태그를 생성합니다.
+        const header = document.createElement("h1");
+
+        // 생성한 태그를 조작합니다.
+
+        header.textContent = "문서 객체 동적으로 생성하기";
+        header.setAttribute("data-custom", "사용자 정의 속성");
+        header.style.color = "white";
+        header.style.backgroundColor = "black";
+
+        // h1 태그를 body 태그 아래에 추가하기
+        // appendChild : 부모 객체 아래에 자식 객체를 추가할 수 있다.
+        document.body.appendChild(header);
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

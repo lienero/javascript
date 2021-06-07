@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DOMContentLoaded</title>
+    <script>
+      // DOMContentLoaded 이벤트를 연결합니다.
+      // DOMContentLoaded 이벤트는 웹 브라우저가 문서 객체를 모두 읽고나서 실행하는 이벤트입니다.
+      document.addEventListener("DOMContentLoaded", () => {
+        // 특정 아이디('#a')로 요소를 선택합니다.
+        const a = document.querySelector("#a");
+        const b = document.querySelector("#b");
+
+        a.textContent = "<h1>textContent 속성</h1>";
+        // innerHTML h1 요소로 변환해서 들어간다.
+        b.innerHTML = "<h1>innerHTML 속성</h1>";
+      });
+    </script>
+  </head>
+  <body>
+    <div id="a"></div>
+    <div id="b"></div>
+  </body>
+</html>
