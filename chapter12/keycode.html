@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const h1 = document.querySelector("h1");
+        const print = (event) => {
+          let output = "";
+          // altkey가 눌렸을 때 작동
+          output += `alt: ${event.altKey}<br>`;
+          // ctrlkey가 눌렸을 때 작동
+          output += `ctrl: ${event.ctrlKey}<br>`;
+          // shiftkey가 눌렸을 때 작동
+          output += `shift: ${event.shiftKey}<br>`;
+          // code는 입력한 키를 나타낸다
+          output += `code: ${
+            typeof event.code !== "undefined" ? event.code : event.keyCode
+          }<br>`;
+          h1.innerHTML = output;
+        };
+        document.addEventListener("keydown", print);
+        document.addEventListener("keyup", print);
+      });
+    </script>
+  </head>
+  <body>
+    <h1></h1>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let [timer, timerId] = [0, 0];
+        const h1 = document.querySelector("h1");
+        const checkbox = document.querySelector("input");
+
+        // 입력방식은 값이 변경될 떄 change 이벤트를 발생합니다.
+        // 입력 양식은 입력 양식을 선택(focus 상태)해서 글자를 입력하고, 선택을 해제(blur)할 때 change 이벤트를 발생합니다.
+        checkbox.addEventListener("change", (event) => {
+          // 체크상태
+          if (event.currentTarget.checked) {
+            // setInterval : 일정 시간 간격을 두고 함수를 실행하는 방법
+            timerId = setInterval(() => {
+              timer += 1;
+              h1.textContent = `${timer}초`;
+            }, 1000);
+          } else {
+            //체크 해제 상태
+            clearInterval(timerId);
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="checkbox" />
+    <span>타이머 활성화</span>
+    <h1></h1>
+  </body>
+</html>

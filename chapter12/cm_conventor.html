@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let 현재값;
+        let 변환상수 = 10;
+
+        const select = document.querySelector("select");
+        const input = document.querySelector("input");
+        const span = document.querySelector("span");
+
+        const calculate = () => {
+          // toFixed() = 괄호 안에 들어간 숫자의 자리만큼 소수점을 출력합니다. (문자열로 반환)
+          span.textContent = (현재값 * 변환상수).toFixed(2);
+        };
+
+        select.addEventListener("change", (event) => {
+          const options = event.currentTarget.options;
+          // selectedIndex 선택된 옵션의 인덱스값을 리턴
+          const index = event.currentTarget.options.selectedIndex;
+          // 항목을 선택하면 항복의 value 속성을 추출합니다.
+          // Number 메소드는 값을 숫자로 변환해 반환한다.
+          변환상수 = Number(options[index].value);
+          calculate();
+        });
+
+        input.addEventListener("keyup", (event) => {
+          // 값을 입력하면 현재값을 추출합니다.
+          // Number 메소드는 값을 숫자로 변환해 반환한다.
+          현재값 = Number(event.currentTarget.value);
+          calculate();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="text" />cm =
+    <span></span>
+    <select>
+      <option value="10">mm</option>
+      <option value="0.01">m</option>
+      <option value="0.393701">inch</option>
+    </select>
+  </body>
+</html>

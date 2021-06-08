@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const select = document.querySelector("select");
+        const p = document.querySelector("p");
+
+        // 입력방식은 값이 변경될 떄 change 이벤트를 발생합니다.
+        // 입력 양식은 입력 양식을 선택(focus 상태)해서 글자를 입력하고, 선택을 해제(blur)할 때 change 이벤트를 발생합니다.
+        select.addEventListener("change", (event) => {
+          const options = event.currentTarget.options;
+          const list = [];
+          // options 속성에는 forEach() 메소드가 없다.
+          for (const option of options) {
+            if (option.selected) {
+              list.push(option.textContent);
+            }
+          }
+          p.textContent = `선택: ${list.join(",")}`;
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <select multiple>
+      <option>떡볶이</option>
+      <option>순대</option>
+      <option>오뎅</option>
+      <option>튀김</option>
+    </select>
+    <p></p>
+  </body>
+</html>
