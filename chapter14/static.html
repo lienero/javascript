@@ -1,0 +1,56 @@
+<script>
+  class Square {
+    // length 를 private 속성으로 사용하겠다고 선언
+    #length;
+    // private 특성과 static 특성은 한꺼번에 적용할 수도 있습니다.
+    // static 속성은 메소드와 인스턴스를 만들지 않고 사용할 수 있는 속성과 메소드입니다.
+    static #counter = 0;
+    static get counter() {
+      return Square.#counter;
+    }
+
+    constructor(length) {
+      // this.lenght 값을 지정하면 set length(length) 메소드 부분이 호출됩니다.
+      this.length = length;
+      Square.#counter += 1;
+    }
+
+    static perimeterOf(length) {
+      return length * 4;
+    }
+
+    static areaOf(length) {
+      return length * length;
+    }
+
+    get length() {
+      return this.#length;
+    }
+    get perimeter() {
+      return this.#length * 4;
+    }
+    get area() {
+      return this.#length * this.#length;
+    }
+
+    set length(lenght) {
+      if (lenght <= 0) {
+        throw "길이는 0보다 커야합니다.";
+      }
+      this.#length = lenght;
+    }
+  }
+
+  // static 속성 사용하기
+  const squareA = new Square(10);
+  const squareB = new Square(20);
+  const squareC = new Square(30);
+  console.log(`지금까지 생성된 Square 인스턴스는 ${Square.counter}개 입니다.`);
+  // static 메소드 사용하기
+  console.log(
+    `한 변의 길이가 20인 정사각형의 둘레는 ${Square.perimeterOf(20)}입니다.`
+  );
+  console.log(
+    `한 변의 길이가 30인 정사각형의 넓이는 ${Square.areaOf(30)}입니다.`
+  );
+</script>

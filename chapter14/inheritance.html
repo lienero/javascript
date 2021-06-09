@@ -1,0 +1,36 @@
+<script>
+  // 사각형 클래스
+  class Rectangle {
+    // 생성자
+    constructor(width, height) {
+      this.width = width;
+      this.height = height;
+    }
+
+    // 사각형의 둘레를 구하는 메소드
+    getPerimeter() {
+      return 2 * (this.width + this.height);
+    }
+
+    // 사각형 넓이를 구하는 메소드
+    getArea() {
+      return this.width * this.height;
+    }
+  }
+  // 정사각형 클래스
+  // Square 은 Rectangle 의 자식 클래스 입니다.
+  class Square extends Rectangle {
+    constructor(length) {
+      // 부모의 생성자 함수를 호출하는 코드입니다.
+      // super(length, length)를 호출하면 Rectangle 클래스의 생성자(width, height) 가 호출되어 width 속성과 height 속성이 들어갑니다.
+      super(length, length);
+    }
+  }
+
+  // 클래스 사용하기
+  // 인스턴스 : 클래스를 기반으로 만든 객체
+  // new 클래스 이름() : 인스턴스를 생성하는 문법이다.
+  const square = new Square(10, 20);
+  console.log(`정사각형의 둘레: ${square.getPerimeter()}`);
+  console.log(`정사각형의 넓이: ${square.getArea()}`);
+</script>

@@ -1,0 +1,17 @@
+<script>
+  class Pet {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+
+    // 오버라이드 하여 내부적으로 문자열로 변환되는 형태를 바꿀 수 있다.
+    toString() {
+      return `이름: ${this.name}\n나이: ${this.age}살`;
+    }
+  }
+
+  const pet = new Pet("구름", 6);
+  alert(pet);
+  console.log(pet + "");
+</script>
